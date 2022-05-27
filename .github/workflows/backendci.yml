@@ -19,8 +19,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - run: python -m pip install PyGithub  # Installing dependencies
-      shell: bash
+   # - run: python -m pip install PyGithub  # Installing dependencies
+   #   shell: bash
+      #below line for adding credential of remote access, such as docker, kubernetes, AWS, github,  
     #- run: python ${{ github.action_path }}/main-script.py ${{ inputs.gh_token }} ${{ inputs.file_name }} ${{ github.workspace }} ${{ inputs.max_repo_description }}
     #  shell: bash
       #- run: mv .env.label-1 .env
