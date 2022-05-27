@@ -28,5 +28,4 @@ jobs:
     #- run: apt install python3 
     #- run: apt install python3-pip
     - run: pip3 install -r requirements.txt
-      #- run: pm2 delete ts4u-back 2> /dev/null || true 
     - run: flask run --host 0.0.0.0
