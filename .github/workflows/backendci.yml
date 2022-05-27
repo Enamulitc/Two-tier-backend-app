@@ -15,11 +15,13 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.x]
+        python-version: [3.8]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-   # - run: python -m pip install PyGithub  # Installing dependencies
+    # Checks-out your repository under $GITHUB_WORKSPACE
+    - uses: actions/checkout@v2   
+    # - run: python -m pip install PyGithub  # Installing dependencies
    #   shell: bash
       #below line for adding credential of remote access, such as docker, kubernetes, AWS, github,  
     #- run: python ${{ github.action_path }}/main-script.py ${{ inputs.gh_token }} ${{ inputs.file_name }} ${{ github.workspace }} ${{ inputs.max_repo_description }}
@@ -27,5 +29,10 @@ jobs:
       #- run: mv .env.label-1 .env
     #- run: apt install python3 
     #- run: apt install python3-pip
-    - run: pip3 install -r requirements.txt
+    #- run: pip3 install -r requirements.txt
+   # Install dependencies
+    - name: Install dependencies
+      run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
     - run: flask run --host 0.0.0.0
